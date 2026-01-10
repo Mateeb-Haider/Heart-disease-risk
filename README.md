@@ -44,7 +44,7 @@ Before you begin, ensure you have the following installed:
 **Option A: Using Git**
 
 ```bash
-git clone https://github.com/yourusername/heart-disease-prediction.git
+git clone https://github.com/Mateeb-Haider/Heart-disease-risk.git
 cd heart-disease-prediction
 ```
 
@@ -76,7 +76,7 @@ source venv/bin/activate
 pip install streamlit pandas numpy scikit-learn pickle-mixin
 ```
 
-Or if a `requirements.txt` is provided:
+Or `requirements.txt` is provided:
 
 ```bash
 pip install -r requirements.txt
@@ -306,11 +306,9 @@ Contributions are welcome! Here's how you can help:
 **Your Name**
 
 - GitHub: [@mateeb-haider](https://github.com/mateeb-haider)
-- Email: your.email@example.com
+- Email: muteebhdr@gmail.com
 
 ## 🙏 Acknowledgments
-
-- Dataset: [UCI Heart Disease Dataset](https://archive.ics.uci.edu/ml/datasets/heart+disease)
 - Icons: Emoji icons for better visual appeal
 - Framework: Built with [Streamlit](https://streamlit.io/)
 - ML Library: [scikit-learn](https://scikit-learn.org/)
@@ -320,7 +318,7 @@ Contributions are welcome! Here's how you can help:
 If you encounter any issues or have questions:
 
 1. Check the [Troubleshooting](#troubleshooting) section
-2. Search existing [GitHub Issues](https://github.com/yourusername/heart-disease-prediction/issues)
+2. Search existing [GitHub Issues](https://github.com/Mateeb-Haider/Heart-disease-risk/issues)
 3. Open a new issue with detailed description
 4. Contact via email for urgent matters
 
