@@ -194,7 +194,7 @@ model.fit(X_train_res, y_train_res)
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 
-print("✅ Model Accuracy:", round(accuracy * 100, 2), "%")
+# print("✅ Model Accuracy:", round(accuracy * 100, 2), "%")
 print("\n📋 Classification Report:\n", classification_report(y_test, y_pred))
 
 # ✅ Save model
