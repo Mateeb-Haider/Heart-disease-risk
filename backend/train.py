@@ -1,3 +1,4 @@
+<<<<<<< HEAD:train.py
 
 
 
@@ -55,6 +56,8 @@
 
 # 2nd attempt
 ''''
+=======
+>>>>>>> 5a95a7dc4ad844650ff1a546e1493c9d6bff3aab:backend/train.py
 import pandas as pd
 from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
 from sklearn.ensemble import RandomForestClassifier
