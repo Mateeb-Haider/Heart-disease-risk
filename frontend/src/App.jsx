@@ -16,7 +16,7 @@ import ChatBot from './components/ChatBot';
 
 // --- Components ---
 
-const Hero = ({ onStart }) => (
+const Hero = ({ onStart, onShowParams }) => (
   <div className="relative overflow-hidden mb-16 pt-10 px-4">
     <div className="max-w-4xl mx-auto text-center">
       <div className="inline-flex items-center gap-2 bg-blue-600/10 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 shadow-sm ring-1 ring-blue-700/10 hover:bg-blue-600/20 transition-all cursor-default">
@@ -39,6 +39,12 @@ const Hero = ({ onStart }) => (
           className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 transition-all duration-300"
         >
           Start Assessment
+        </button>
+        <button
+          onClick={onShowParams}
+          className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-1 transition-all duration-300"
+        >
+          Normal Health Parameters
         </button>
       </div>
     </div>
@@ -359,6 +365,127 @@ function App() {
     </div>
   );
 
+  const NormalParams = () => (
+    <div className="max-w-3xl mx-auto py-12 px-6">
+      <button
+        onClick={() => setView('landing')}
+        className="mb-8 flex items-center text-slate-500 hover:text-blue-600 transition-colors font-medium text-sm"
+      >
+        <ChevronLeft size={16} className="mr-1" /> Back to Home
+      </button>
+
+      <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-10 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none opacity-50"></div>
+
+        <h2 className="text-2xl font-extrabold text-slate-900 mb-3 text-center">Normal Health Parameters</h2>
+        <p className="text-slate-600 text-center mb-8">General reference ranges for a healthy adult. Individual targets may vary—consult your clinician.</p>
+
+        <ul className="space-y-4">
+          {[
+            { label: 'Blood Pressure (resting)', value: 'Around 120/80 mm Hg' },
+            { label: 'Resting BP (trestbps)', value: '90–120 mm Hg' },
+            { label: 'Total Cholesterol (chol)', value: '< 200 mg/dL' },
+            { label: 'Fasting Blood Sugar (fbs)', value: '< 100 mg/dL (No if > 120)' },
+            { label: 'Max Heart Rate (thalach)', value: '≈ 220 − age (bpm)' },
+            { label: 'ST Depression (oldpeak)', value: '0.0 to 1.0' },
+            { label: 'Chest Pain (cp)', value: 'No typical angina during exercise' },
+            { label: 'Resting ECG (restecg)', value: 'Normal' },
+            { label: 'Exercise Angina (exang)', value: 'No' },
+            { label: 'ST Slope (slope)', value: 'Up' },
+          ].map((item, idx) => (
+            <li key={idx} className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                <Check size={16} />
+              </div>
+              <div>
+                <div className="font-semibold text-slate-800">{item.label}</div>
+                <div className="text-slate-600 text-sm">{item.value}</div>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-10 flex justify-center">
+          <button
+            onClick={() => setView('landing')}
+            className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all"
+          >
+            Back to Home
+          </button>
+        </div>
+      </div>
+      <Disclaimer />
+    </div>
+  );
+
+  const AboutUs = () => (
+    <div className="max-w-4xl mx-auto py-12 px-6">
+      <button
+        onClick={() => setView('landing')}
+        className="mb-8 flex items-center text-slate-500 hover:text-blue-600 transition-colors font-medium text-sm"
+      >
+        <ChevronLeft size={16} className="mr-1" /> Back to Home
+      </button>
+
+      <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-72 h-72 bg-blue-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none opacity-50"></div>
+
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-2 bg-blue-600/10 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 shadow-sm ring-1 ring-blue-700/10">
+            <HeartPulse size={16} /> About Dil Sehat AI
+          </div>
+          <h2 className="text-3xl font-extrabold text-slate-900">About Us</h2>
+          <p className="text-slate-600 mt-2">Built with care to empower people with accessible heart health insights.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <h3 className="font-bold text-slate-800 mb-2">Institution & Guidance</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              This project was developed at the <span className="font-semibold text-slate-800">University of South Asia</span>, under the guidance of
+              <span className="font-semibold text-slate-800"> Miss Zobia Zafar (HOD)</span> and
+              <span className="font-semibold text-slate-800"> Miss Andleeb</span>, Instructor of Data Science.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <h3 className="font-bold text-slate-800 mb-2">Why This Project?</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Cardiovascular diseases are a leading cause of mortality. Early assessment and awareness can guide timely lifestyle changes and clinical consultation.
+              Dil Sehat AI provides quick, privacy-friendly risk evaluation using clinically relevant metrics.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <h3 className="font-bold text-slate-800 mb-2">How It Helps</h3>
+            <ul className="space-y-2 text-sm text-slate-600">
+              <li className="flex items-start gap-2"><ShieldCheck className="text-emerald-600" size={16}/> Instant, informative feedback on key heart health indicators.</li>
+              <li className="flex items-start gap-2"><ShieldCheck className="text-emerald-600" size={16}/> Encourages proactive checkups and lifestyle improvements.</li>
+              <li className="flex items-start gap-2"><ShieldCheck className="text-emerald-600" size={16}/> Simple to use—no medical background required.</li>
+            </ul>
+          </div>
+
+          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <h3 className="font-bold text-slate-800 mb-2">Technology</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              The app uses a Random Forest model and a modern React frontend styled with Tailwind CSS, focusing on speed, clarity, and accessibility.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-10 text-center">
+          <button
+            onClick={() => setView('wizard')}
+            className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-0.5 transition-all"
+          >
+            Start Assessment
+          </button>
+        </div>
+      </div>
+      <Disclaimer />
+    </div>
+  );
+
   return (
     <div className="min-h-screen pb-10">
       <ChatBot />
@@ -367,16 +494,19 @@ function App() {
           <div className="flex items-center gap-2 font-black text-xl text-slate-800 tracking-tight">
             <HeartPulse className="text-green-600" /> Dil Sehat
           </div>
-          {view !== 'landing' && (
-             <button onClick={() => setView('landing')} className="text-sm font-semibold text-slate-500 hover:text-blue-600">Home</button>
-          )}
+          <div className="flex items-center gap-4">
+            <button onClick={() => setView('about')} className="text-sm font-semibold text-slate-500 hover:text-blue-600">About Us</button>
+            {view !== 'landing' && (
+              <button onClick={() => setView('landing')} className="text-sm font-semibold text-slate-500 hover:text-blue-600">Home</button>
+            )}
+          </div>
         </div>
       </nav>
 
       <main className="pt-12">
         {view === 'landing' ? (
            <>
-            <Hero onStart={() => setView('wizard')} />
+            <Hero onStart={() => setView('wizard')} onShowParams={() => setView('params')} />
             <Stats />
             <Features />
             <Disclaimer />
@@ -384,8 +514,12 @@ function App() {
               © 2026 Dil Sehat AI · Pakistan's Trusted Health AI
             </footer>
            </>
-        ) : (
+        ) : view === 'wizard' ? (
           <Wizard />
+        ) : view === 'params' ? (
+          <NormalParams />
+        ) : (
+          <AboutUs />
         )}
       </main>
     </div>
