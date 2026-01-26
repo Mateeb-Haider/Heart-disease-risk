@@ -29,7 +29,7 @@ X = X.reindex(columns=model_columns, fill_value=0)
 
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
+    X, y, test_size=0.2, random_state=42, stratify=y
 )
 
 # Load trained model
@@ -41,12 +41,12 @@ y_pred = model.predict(X_test)
 # Accuracy
 accuracy = accuracy_score(y_test, y_pred)
 
-print("✅ Model Accuracy:", round(accuracy * 100, 2), "%")
+print(" Model Accuracy:", round(accuracy * 100, 2), "%")
 
 # Confusion Matrix
-print("\n📊 Confusion Matrix:")
+print("\n Confusion Matrix:")
 print(confusion_matrix(y_test, y_pred))
 
 # Classification Report
-print("\n📋 Classification Report:")
+print("\n Classification Report:")
 print(classification_report(y_test, y_pred))

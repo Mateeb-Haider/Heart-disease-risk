@@ -48,7 +48,7 @@ class HeartData(BaseModel):
 def health_check():
     return {"status": "ok", "model_loaded": model is not None}
 
-@app.post("/predict")
+@app.post("/res/gen")
 def predict(data: HeartData):
     if model is None:
         raise HTTPException(status_code=503, detail="Model not loaded")

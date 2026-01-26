@@ -23,8 +23,8 @@ const Hero = ({ onStart, onShowParams }) => (
         <HeartPulse size={16} />
         <span>Dil Sehat AI</span>
       </div>
-      <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
-        Apka Dil, Hamari Zimadari <br/>
+      <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
+        Your's Heart, Our Responsibility <br/>
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-500">
           (Predict Heart Risk)
         </span>
@@ -56,7 +56,7 @@ const Stats = () => (
     <div className="glass-card grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100 p-6">
       {[
         { val: "17.9M", label: "Lives impacted annually" },
-        { val: "92%", label: "Model Accuracy" },
+        { val: "87%", label: "Model Accuracy" },
         { val: "<1s", label: "Processing Time" }
       ].map((stat, i) => (
         <div key={i} className="text-center py-4">
@@ -203,7 +203,7 @@ function App() {
   const submitPrediction = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8000/predict', {
+      const response = await fetch('http://localhost:8000/res/gen', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
