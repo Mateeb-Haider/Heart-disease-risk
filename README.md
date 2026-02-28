@@ -339,7 +339,7 @@ python evaluate.py  # Test model accuracy
 ---
 
 <div align="center">
-  <sub>Built with ❤️ for better heart health awareness</sub>
+  <sub>Built with ❤️ by Mateeb & Ahad</sub>
   <br>
   <sub>© 2026 Dil Sehat AI - Not for medical diagnosis</sub>
 </div>
